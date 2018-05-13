@@ -7,7 +7,7 @@ x = f.read()
 f.close()
 z = []
 for c in x:
-    if(c.isdigit()):
+    if c.isdigit():
         z.append(c)
 for i in z:
     print(i, end='')
