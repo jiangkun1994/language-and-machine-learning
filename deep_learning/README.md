@@ -45,4 +45,14 @@ CNN主要由三种模块构成：卷积层、采样层和全连接层。可以�
 - **分类器(SVMs)**  
    - 训练：对于所有proposal进行严格的标定（可以这样理解，当且仅当一个候选框完全包含ground truth区域且不属于ground truth部分不超过e.g,候选框区域的5%时认为该候选框标定结果为目标，否则位背景），然后将所有proposal经过CNN处理得到的特征和SVM新标定结果输入到SVMs分类器进行训练得到分类器预测模型。  
    - 测试：测试：对于一副测试图像，提取得到的2000个proposal经过CNN特征提取后输入到SVM分类器预测模型中，可以给出特定类别评分结果。  
-R-CNN需要对SS提取得到的每个proposal进行一次前向CNN实现特征提取，因此计算量很大，无法实时。此外，由于全连接层的存在，需要严格保证输入的proposal最终resize到相同尺度大小，这在一定程度造成图像畸变，影响最终结果。
+R-CNN需要对SS提取得到的每个proposal进行一次前向CNN实现特征提取，因此计算量很大，无法实时。此外，由于全连接层的存在，需要严格保证输入的proposal最终resize到相同尺度大小，这在一定程度造成图像畸变，影响最终结果。  
+- **Fast RCNN**：框架如图所示  
+![](figures/fast-rcnn.png)  
+
+![](figures/fast-rcnn-2.png)  
+
+Fast R-CNN框架与R-CNN有两处不同：1. 最后一个卷积层后加了一个ROI pooling layer；2. 损失函数使用了multi-task loss（多任务损失）函数，将边框回归直接加到CNN网络中训练。分类Fast R-CNN直接用softmax替代R-CNN用的SVM进行分类；3. Fast R-CNN是端到端（end-to-end）的。  
+- **Faster R-CNN**：如图所示  
+![](figures/faster-rcnn.png)  
+
+Faster-R-CNN算法由两大模块组成：1. RPN候选框提取模块；2. Fast R-CNN检测模块，其中RPN是全卷积神经网络，用于提取候选框；Fast R-CNN基于RPN提取的proposal检测并识别proposal中的目标。
