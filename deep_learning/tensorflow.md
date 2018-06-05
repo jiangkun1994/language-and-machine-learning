@@ -1,0 +1,2 @@
+# Notes for TensorFlow
+- **tf.transpose()**：tf.transpose(input, [dimension_1, dimenaion_2,..,dimension_n]):这个函数主要适用于交换输入张量的不同维度用的，如果输入张量是二维，就相当是转置。dimension_n是整数，如果张量是三维，就是用0,1,2来表示。这个列表里的每个数对应相应的维度。如果是[2,1,0]，就把输入张量的第一维度变成输出的第三维度，输入的第二维度放中间，输入的第三维度放在第一维度。
