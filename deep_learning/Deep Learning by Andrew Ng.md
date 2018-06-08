@@ -35,4 +35,7 @@
 
 ### 6. Logistic Regression  
 - Solve the classification 1 or 0.  P hat means the probability. The output for sigmoid function is from 0 to 1.  
-![](figures/logistic-regression.png)
+![](figures/logistic-regression.png)  
+
+### 7. Logistic Regression Cost Function  
+- The goal is to want the i-th y hat which is predicted by NN to equal to the ground truth the i-th y label. Thus, whether they are equal or closed can be measured by `Loss function`. We dont usually use squared error for logistic regression, since it will cause the optimization non-convex which has multiple optima and gradient descent may not find the global optimum. Loss function is defined for a single training example, while `Cost funtion` which is the cose of the parameters can measure how we are doing on entire traning set to find parameters for `W` and `b` to minimize the cost.
