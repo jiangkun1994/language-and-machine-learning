@@ -45,7 +45,7 @@
 - Want to find w, b that minimize the cost function `J(w,b)`. Convex function and non-convex function. Gradient descent will make the value of cost function decrease in the steepest downhill. Through many iterations, the value of cost function will converge to the global optimum.  
 ![](figures/gradient-descent.png)  
 
-- The learning rate \alpha indicates and controls how big a step is we take on each iteration of gradient descent. If the cost function has two or more parameters, we use `partial derivative`.  
+- The learning rate alpha indicates and controls how big a step is we take on each iteration of gradient descent. If the cost function has two or more parameters, we use `partial derivative`.  
 ![](figures/gradient-descent-2.png)  
 
 ### 9. Derivatives  
@@ -59,12 +59,12 @@
 ![](figures/computation-graph.png)  
 
 ### 12. Derivatives with a Computation Graph  
-- The function is `J = 3 * (a + bc)`. `\frac{dJ}{da} = \frac{dJ}{dv} * \frac{dv}{da}`. This is called `chain rule`. In code, we usually use `dvar` to represent the notation `\frac{dFinalOutput}{dvar}`.  
+- The function is `J = 3 * (a + bc)`. <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{dJ}{da}&space;=&space;\frac{dJ}{dv}&space;*&space;\frac{dv}{da}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{dJ}{da}&space;=&space;\frac{dJ}{dv}&space;*&space;\frac{dv}{da}" title="\frac{dJ}{da} = \frac{dJ}{dv} * \frac{dv}{da}" /></a>. This is called `chain rule`. In code, we usually use `dvar` to represent the notation <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{dFinalOutput}{dvar}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{dFinalOutput}{dvar}" title="\frac{dFinalOutput}{dvar}" /></a>.  
 ![](figures/computing-derivative.png)  
 
 ### 13. Logistic Regression Derivatives  
-- The reason why the derivative of sigmoid function is `a * (1-a)` can be seen in website(http://kawahara.ca/how-to-compute-the-derivative-of-a-sigmoid-function-fully-worked-example). This picture only shows the logistic regression on one single example.  
-![](logistic-derivative.png)  
+- The reason why the derivative of sigmoid function is `a * (1-a)` can be seen in [website](http://kawahara.ca/how-to-compute-the-derivative-of-a-sigmoid-function-fully-worked-example). This picture only shows the logistic regression on one single example.  
+![](figures/logistic-derivative.png)  
 
 ### 14. Gradient Descent on m Training Exxamples  
 - Cost function is the average loss function for m examples. Also, gradient for each parameters w1, w2, w3 .... and b should be similar with cost function which is the average gradient for m examples. Vectorization will get rid of the loops, since the loops are less efficient.  
