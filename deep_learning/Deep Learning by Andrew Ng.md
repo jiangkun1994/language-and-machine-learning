@@ -38,4 +38,35 @@
 ![](figures/logistic-regression.png)  
 
 ### 7. Logistic Regression Cost Function  
-- The goal is to want the i-th y hat which is predicted by NN to equal to the ground truth the i-th y label. Thus, whether they are equal or closed can be measured by `Loss function`. We dont usually use squared error for logistic regression, since it will cause the optimization non-convex which has multiple optima and gradient descent may not find the global optimum. Loss function is defined for a single training example, while `Cost funtion` which is the cose of the parameters can measure how we are doing on entire traning set to find parameters for `W` and `b` to minimize the cost.
+- The goal is to want the i-th y hat which is predicted by NN to equal to the ground truth the i-th y label. Thus, whether they are equal or closed can be measured by `Loss function`. We dont usually use squared error for logistic regression, since it will cause the optimization non-convex which has multiple optima and gradient descent may not find the global optimum. Loss function is defined for a single training example, while `Cost funtion` which is the cost of the parameters can measure how we are doing on entire traning set to find parameters for `W` and `b` to minimize the cost.  
+![](figures/cost-function.png)  
+
+### 8. Gradient Descent  
+- Want to find w, b that minimize the cost function `J(w,b)`. Convex function and non-convex function. Gradient descent will make the value of cost function decrease in the steepest downhill. Through many iterations, the value of cost function will converge to the global optimum.  
+![](figures/gradient-descent.png)  
+
+- The learning rate \alpha indicates and controls how big a step is we take on each iteration of gradient descent. If the cost function has two or more parameters, we use `partial derivative`.  
+![](figures/gradient-descent-2.png)  
+
+### 9. Derivatives  
+![](figures/derivative.png)  
+
+### 10. Derivatives Examples  
+![](figures/derivative-2.png)  
+
+### 11. Computation Graph  
+- Forward propagation is to compute the output of the neural network. Back propagation is to compute the gradients or derivatives.  
+![](figures/computation-graph.png)  
+
+### 12. Derivatives with a Computation Graph  
+- The function is `J = 3 * (a + bc)`. `\frac{dJ}{da} = \frac{dJ}{dv} * \frac{dv}{da}`. This is called `chain rule`. In code, we usually use `dvar` to represent the notation `\frac{dFinalOutput}{dvar}`.  
+![](figures/computing-derivative.png)  
+
+### 13. Logistic Regression Derivatives  
+- The reason why the derivative of sigmoid function is `a * (1-a)` can be seen in website(http://kawahara.ca/how-to-compute-the-derivative-of-a-sigmoid-function-fully-worked-example). This picture only shows the logistic regression on one single example.  
+![](logistic-derivative.png)  
+
+### 14. Gradient Descent on m Training Exxamples  
+- Cost function is the average loss function for m examples. Also, gradient for each parameters w1, w2, w3 .... and b should be similar with cost function which is the average gradient for m examples. Vectorization will get rid of the loops, since the loops are less efficient.  
+![](figures/logistic-regression-m-examples.png)  
+
