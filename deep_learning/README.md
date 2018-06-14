@@ -41,7 +41,7 @@ CNN主要由三种模块构成：卷积层、采样层和全连接层。可以�
 - **候选框提取(selective search)**首先先进行候选框提取，采用selective search的方法。给定一张图片，利用seletive search方法从中提取出2000个候选框。由于候选框大小不一，考虑到后续CNN要求输入的图片大小统一（因为全连接层需要统一大小的图片），将2000个候选框全部resize到227*227分辨率。  
 - **特征提取(CNN)**  
    - 训练：提取特征的CNN模型需要预先训练得到。训练CNN模型时，对训练数据标定要求比较宽松，即SS方法提取的proposal只包含部分目标区域时，我们也将该proposal标定为特定物体类别。这样做的主要原因在于，CNN训练需要大规模的数据，如果标定要求极其严格（即只有完全包含目标区域且不属于目标的区域不能超过一个小的阈值），那么用于CNN训练的样本数量会很少。因此，宽松标定条件下训练得到的CNN模型只能用于特征提取。  
-   - 测试：得到统一分辨率227*227的proposal后，带入训练得到的CNN模型，最后一个全连接层的输出结果---4096*1维度向量即用于最终测试的特征。  
+   - 测试：得到统一分辨率227x227的proposal后，带入训练得到的CNN模型，最后一个全连接层的输出结果---4096x1维度向量即用于最终测试的特征。  
 - **分类器(SVMs)**  
    - 训练：对于所有proposal进行严格的标定（可以这样理解，当且仅当一个候选框完全包含ground truth区域且不属于ground truth部分不超过e.g,候选框区域的5%时认为该候选框标定结果为目标，否则位背景），然后将所有proposal经过CNN处理得到的特征和SVM新标定结果输入到SVMs分类器进行训练得到分类器预测模型。  
    - 测试：测试：对于一副测试图像，提取得到的2000个proposal经过CNN特征提取后输入到SVM分类器预测模型中，可以给出特定类别评分结果。  
@@ -51,8 +51,9 @@ R-CNN需要对SS提取得到的每个proposal进行一次前向CNN实现特征�
 
 ![](figures/fast-rcnn-2.png)  
 
-Fast R-CNN框架与R-CNN有两处不同：1. 最后一个卷积层后加了一个ROI pooling layer；2. 损失函数使用了multi-task loss（多任务损失）函数，将边框回归直接加到CNN网络中训练。分类Fast R-CNN直接用softmax替代R-CNN用的SVM进行分类；3. Fast R-CNN是端到端（end-to-end）的。  
+- Fast R-CNN框架与R-CNN有两处不同：1. 最后一个卷积层后加了一个ROI pooling layer；2. 损失函数使用了multi-task loss（多任务损失）函数，将边框回归直接加到CNN网络中训练。分类Fast R-CNN直接用softmax替代R-CNN用的SVM进行分类；3. Fast R-CNN是端到端（end-to-end）的。  
 - **Faster R-CNN**：如图所示  
 ![](figures/faster-rcnn.png)  
 
-Faster-R-CNN算法由两大模块组成：1. RPN候选框提取模块；2. Fast R-CNN检测模块，其中RPN是全卷积神经网络，用于提取候选框；Fast R-CNN基于RPN提取的proposal检测并识别proposal中的目标。
+- Faster R-CNN算法由两大模块组成：1. RPN候选框提取模块；2. Fast R-CNN检测模块，其中RPN是全卷积神经网络，用于提取候选框；Fast R-CNN基于RPN提取的proposal检测并识别proposal中的目标。  
+- Faster R-CNN训练过程: 1. 训练RPN，输入图片，输出候选框，类似Fast R-CNN里直接从图经过SS出来候选框一样; 2. 训练detector，也就是Faster R-CNN里的Fast R-CNN的结构，输入图片和候选框，输出分类结果; 3. 训练第二次RPN，此时输入的是base network出来的feature map，输出候选框; 4. 训练第二次detector，此时训练Fast R-CNN，输入的是base network输出的feature map以及RPN出来的候选框，输出分类结果。
