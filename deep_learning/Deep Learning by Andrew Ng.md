@@ -66,7 +66,42 @@
 - The reason why the derivative of sigmoid function is `a * (1-a)` can be seen in [website](http://kawahara.ca/how-to-compute-the-derivative-of-a-sigmoid-function-fully-worked-example). This picture only shows the logistic regression on one single example.  
 ![](figures/logistic-derivative.png)  
 
-### 14. Gradient Descent on m Training Exxamples  
+### 14. Gradient Descent on m Training Examples  
 - Cost function is the average loss function for m examples. Also, gradient for each parameters w1, w2, w3 .... and b should be similar with cost function which is the average gradient for m examples. Vectorization will get rid of the loops, since the loops are less efficient.  
 ![](figures/logistic-regression-m-examples.png)  
+
+### 15. Vectorization  
+- Vectorize the data will save a lot of time than non-vectorized.  
+![](figures/vectorization.png)  
+
+![](figures/vectorization-1.png)  
+
+### 16. More Vectorization Examples  
+- The rule of thumb is to avoid the explicit for-loop and to take a look at the numpy built-in functions first.  
+![](figures/more-vector.png)  
+
+![](figures/more-vector-1.png)  
+
+### 17. Vectorizing Logistic Regression  
+- Even though the bias `b` here is a constant, when it is applied to this vectorization, it will expand into the `1xm` dimensional vector and this is called `broadcasting` in python.  
+![](figures/vectorizing-logistic.png)  
+
+### 18. Vectorizing Logistic Regression's Gradient Computation  
+![](figures/vectorization-gradient.png)  
+
+- If we want to do the iteration for many times, give a for loop.  
+![](figures/vectorization-gradient-1.png)  
+
+### 19. Broadcasting in Python  
+- reshape(1,4) is redundant because the `cal` is already 1 by 4 matrix. `axis = 0` means the vertically
+![](figures/broadcasting-code.png)  
+
+![](figures/broadcasting-example.png)  
+- Broadcasting: `(m,n)` matrix +-\*/ `(1,n) => (m,n)` or `(m,1) => (m,n)`.  
+
+### 20. Python-Numpy  
+- Do not use `rank 1 array`, other than `column vector` or `row vector`.  
+![](figures/rank1-array.png)  
+
+![](figures/rank1-array-1.png)  
 
