@@ -35,7 +35,7 @@ class Student(Person):
         Person.__init__(self, name)
         self.branch = branch
         self.year = year
-def get_details(self):
+    def get_details(self):
         return "{} studies {} and is in {} year.".format(self.name, self.branch, self.year)
 
 class Teacher(Person):
