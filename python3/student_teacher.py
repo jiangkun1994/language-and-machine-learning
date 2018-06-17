@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+"""
+改写我们在第11节类这个模块当中 2.3 继承 部分的 student_teacher.py 脚本，在Person()类中增添函数get_grade()。
+对于教师类，该函数可以自动统计出老师班上学生的得分情况并按照频率的高低以A: X, B: X, C: X, D: X 的形式打印出来。
+对于学生类，该函数则可以以Pass: X, Fail: X 来统计自己的成绩情况（A,B,C 为 Pass, 如果得了 D 就认为是 Fail）
+
+"""
 import sys
 from collections import Counter
 
