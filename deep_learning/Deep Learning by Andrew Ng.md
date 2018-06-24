@@ -105,3 +105,8 @@
 
 ![](figures/rank1-array-1.png)  
 
+### 22. Logistic Regression Cost Function Explanation  
+- If we want the `p(y|x)` become larger, which means the `loss function` for single example should be smaller.  
+![](figures/22-1.png)  
+- In terms of the `cost function`, using the maximum likelihood estimation.  
+![](figures/22-2.png)
