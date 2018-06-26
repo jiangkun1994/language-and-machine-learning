@@ -109,4 +109,23 @@
 - If we want the `p(y|x)` become larger, which means the `loss function` for single example should be smaller.  
 ![](figures/22-1.png)  
 - In terms of the `cost function`, using the maximum likelihood estimation.  
-![](figures/22-2.png)
+![](figures/22-2.png)  
+
+### 23. Neural Network Overview  
+![](figures/23-1.png)  
+
+### 24. Neural Network Representation  
+- The number of layers for NN is not including the input layer.  
+- The round bracket indicates the training example and the square bracket indicates the layer.  
+![](figures/24-1.png)  
+
+### 25. Computing a Neural Network's Output  
+![](figures/25-1.png)  
+
+![](figures/25-2.png)  
+
+### 26. Vectorizing Across Multiple Training Examples  
+![](figures/26-1.png)  
+
+- Vertically, hidden units. Horizontally, training examples.  
+![](figures/26-2.png)  
