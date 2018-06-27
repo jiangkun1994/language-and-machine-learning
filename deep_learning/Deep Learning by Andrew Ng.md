@@ -129,3 +129,41 @@
 
 - Vertically, hidden units. Horizontally, training examples.  
 ![](figures/26-2.png)  
+
+### 27. Vectorized Implementation Explanation  
+![](figures/27-1.png)  
+
+![](figures/27-2.png)
+
+### 28. Activation Functions  
+- Never use the `sigmoid function` unless the goal is to do the binary classification for that layer.  
+- The gradients for `sigmoid function` and `tanh` is high until the `Z` is very large or small, so `ReLu` or `Leaky ReLu` are better and they can learning faster than other activation functions, since the gradients for `z > 0` is 1, which can meet the output for the layer (mostly z > 0 for each layer).  
+![](figures/28-1.png)  
+
+![](figures/28-2.png)  
+
+### 29. Why Non-Linear Activation Function?  
+- Even though there are many hidden layers with linear activation function, the final result will be a linear function of the input, so those hidden layers are useless.  
+![](figures/29-1.png)  
+
+### 30. Derivatives of Activation Functions  
+![](figures/30-1.png)  
+
+![](figures/30-2.png)  
+
+![](figures/30-3.png)  
+
+### 31. Gradient Descent for Neural Networks  
+![](figures/31-1.png)  
+
+![](figures/31-2.png)  
+
+### 32. BackPropagation Intuition  
+![](figures/32-1.png)  
+
+### 33. Random Initialization of Weights  
+- For neural network with many units in the hidden layer, if using initialization of all 0 for weights, actually the derivative and the update value will be symmetric and the same. Hence, there is no difference between many units and one unit in the hidden layer.
+- Often giving a relatively small initialization, if too large, the gradients will be too small and the learning will be much slower.  
+![](figures/33-1.png)  
+
+![](figures/33-2.png)  
