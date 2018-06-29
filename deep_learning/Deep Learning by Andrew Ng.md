@@ -167,3 +167,31 @@
 ![](figures/33-1.png)  
 
 ![](figures/33-2.png)  
+
+### 34. Deep L-layer Neural Network  
+![](figures/34-1.png)  
+
+![](figures/34-2.png)
+
+### 35. Forward Propagation in Deep Networks  
+![](figures/35-1.png)  
+
+### 36. Getting your Matrix Dimension Right  
+![](figures/36-1.png)  
+
+![](figures/36-2.png)  
+
+### 37. Why DEEP representation?  
+- The first hidden layer is applied as the feature detector or edge detector, it is trying to figure out where the edges are in an input picture.
+- The earlier layers of a neural network is detecting simpler functions like edges and then composing them together in the later neural networks so that they can learn more and more complex functions.  
+![](figures/37-1.png)  
+
+![](figures/37-2.png)  
+
+### 38. Building Blocks of Deep Neural Network  
+![](figures/38-1.png)  
+
+![](figures/28-2.png)  
+
+### 39. Forward Propagation for Layer L  
+![](figures/30-1.png)  

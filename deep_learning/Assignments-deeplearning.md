@@ -1,5 +1,5 @@
 # Assignments from DeepLearning.ai  
-## Logistic Regression with a Neural Network mindset  
+## 1. Logistic Regression with a Neural Network mindset  
 Welcome to your first (required) programming assignment! You will build a logistic regression classifier to recognize cats. This assignment will step you through how to do this with a Neural Network mindset, and so will also hone your intuitions about deep learning.  
 - `numpy` is the fundamental package for scientific computing with Python.  
 - `h5py` is a common package to interact with a dataset that is stored on an H5 file.  
@@ -45,4 +45,51 @@ You often build 1-3 separately and integrate them into one function we call `mod
 - A lower cost doesn't mean a better model. You have to check if there is possibly overfitting. It happens when the training accuracy is a lot higher than the test accuracy.
 - In deep learning, we usually recommend that you:
     - Choose the learning rate that better minimizes the cost function.
-    - If your model overfits, use other techniques to reduce overfitting. (We'll talk about this in later videos.)
+    - If your model overfits, use other techniques to reduce overfitting. (We'll talk about this in later videos.)  
+
+## 2. Planar data classification with one hidden layer  
+### Packages  
+- `numpy` is the fundamental package for scientific computing with Python.
+- `sklearn` provides simple and efficient tools for data mining and data analysis.
+- `matplotlib` is a library for plotting graphs in Python.
+- `testCases` provides some test examples to assess the correctness of your functions.
+- `planar_utils` provide various useful functions used in this assignment.  
+
+### The general methodology to build a Neural Network is to:  
+1. Define the neural network structure ( # of input units,  # of hidden units, etc). 
+2. Initialize the model's parameters.
+3. Loop:
+    - Implement forward propagation
+    - Compute loss
+    - Implement backward propagation to get the gradients
+    - Update parameters (gradient descent)
+
+You often build helper functions to compute steps 1-3 and then merge them into one function we call nn_model(). Once you've built nn_model() and learnt the right parameters, you can make predictions on new data.  
+
+### Initialize the model's parameters  
+- Make sure your parameters' sizes are right. Refer to the neural network figure above if needed.
+- You will initialize the weights matrices with random values.
+    - Use: np.random.randn(a,b) * 0.01 to randomly initialize a matrix of shape (a,b).
+- You will initialize the bias vectors as zeros.
+    - Use: np.zeros((a,b)) to initialize a matrix of shape (a,b) with zeros.  
+
+### Forward_propagation  
+- Look above at the mathematical representation of your classifier.
+- You can use the function sigmoid(). It is built-in (imported) in the notebook.
+- You can use the function np.tanh(). It is part of the numpy library.
+- The steps you have to implement are:
+    1. Retrieve each parameter from the dictionary "parameters" (which is the output of initialize_parameters()) by using parameters[".."].
+    2. Implement Forward Propagation. Compute $Z^{[1]}, A^{[1]}, Z^{[2]}$ and $A^{[2]}$ (the vector of all your predictions on all the examples in the training set).
+- Values needed in the backpropagation are stored in "cache". The cache will be given as an input to the backpropagation function.  
+
+### Cross Entropy Loss  
+- Cross-entropy loss, or log loss, measures the performance of a classification model whose output is a probability value between 0 and 1. Cross-entropy loss increases as the predicted probability diverges from the actual label.  
+![](figures/cross-entropy.png)  
+
+### Backward_propagation  
+![](figures/tanh.png)  
+
+### Hidden Units  
+- The larger models (with more hidden units) are able to fit the training set better, until eventually the largest models overfit the data.
+- The best hidden layer size seems to be around n_h = 5. Indeed, a value around here seems to fits the data well without also incurring noticable overfitting.
+- You will also learn later about regularization, which lets you use very large models (such as n_h = 50) without much overfitting.
