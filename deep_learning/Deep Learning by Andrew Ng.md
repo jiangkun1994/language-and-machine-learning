@@ -191,7 +191,7 @@
 ### 38. Building Blocks of Deep Neural Network  
 ![](figures/38-1.png)  
 
-![](figures/28-2.png)  
+![](figures/38-2.png)  
 
 ### 39. Forward Propagation for Layer L  
 ![](figures/30-1.png)  
