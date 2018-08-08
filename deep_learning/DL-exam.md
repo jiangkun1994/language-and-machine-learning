@@ -81,3 +81,12 @@
     - h < x, undercomplete layer, compress the input, compress well for training samples
     - h > x, overcomplete hidden layer, no compression needed (could just copy the input), useful for representation learning
     - What could prevent copying the input? Regularization
+
+## Paper 1  
+- Learning = Representation + Evaluation + Optimization  
+- The fundamental goal of machine learning is to generalize the examples beyond the examples in the training set  
+- In fact, a local optimum returned by simple greedy search may be better than the global optimum
+- One way to understand overfitting is by decomposing generalization error into bias and variance
+- Similar reasoning applies to the choice of optimization method: beam search has lower bias than greedy search, but higher variance, because it tries more hypotheses. Thus, contrary to intuition, a more powerful learner is not necessarily better than a less powerful one.
+- strong false assumptions can be better than weak true ones, because a learner with the latter needs more data to avoid overfitting.
+- Cross-validation, regularization term to the evaluation function can help to combat overfitting
