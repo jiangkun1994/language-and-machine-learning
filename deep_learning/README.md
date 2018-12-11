@@ -57,3 +57,21 @@ R-CNN需要对SS提取得到的每个proposal进行一次前向CNN实现特征�
 
 - Faster R-CNN算法由两大模块组成：1. RPN候选框提取模块；2. Fast R-CNN检测模块，其中RPN是全卷积神经网络，用于提取候选框；Fast R-CNN基于RPN提取的proposal检测并识别proposal中的目标。  
 - Faster R-CNN训练过程: 1. 训练RPN，输入图片，输出候选框，类似Fast R-CNN里直接从图经过SS出来候选框一样; 2. 训练detector，也就是Faster R-CNN里的Fast R-CNN的结构，输入图片和候选框，输出分类结果; 3. 训练第二次RPN，此时输入的是base network出来的feature map，输出候选框; 4. 训练第二次detector，此时训练Fast R-CNN，输入的是base network输出的feature map以及RPN出来的候选框，输出分类结果。
+- **交叉熵损失函数**：负对数似然损失函数
+- **过拟合**：经验风险最小化原则很容易导致模型在训练集上错误率很低，但是在未知数据上错误率很高，过拟合问题往往是由于训练数据少和噪声等原因造成的。
+- **深层神经网络难点**：
+    - 参数过多，影响训练
+    - 非凸优化问题：即存在局部最优而非全局最优解，影响迭代
+    - 下层参数比较难调
+    - 参数解释起来比较困难
+- **GRU**：Gated Recurrent Units, simpler variant of LSTMs
+- **经验**：
+    - 用 ReLU 作为激活函数
+    - 分类时用交叉熵作为损失函数
+    - SGD+mini-batch
+    - 每次迭代都重新随机排序
+    - 数据预处理（标准归一化）
+    - 动态学习率（越来越小）
+    - 用 L1 或 L2 正则化（跳过前几轮）
+    - dropout
+    - 数据增强
